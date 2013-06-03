@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Bloc note sur Java/JEE]]></title>
+  <link href="http://ndruet.github.io//github/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ndruet.github.io//github/"/>
+  <updated>2013-06-03T15:30:24+02:00</updated>
+  <id>http://ndruet.github.io//github/</id>
+  <author>
+    <name><![CDATA[Nicolas Druet]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress]]></title>
+    <link href="http://ndruet.github.io//github/blog/2013/05/27/octopress/"/>
+    <updated>2013-05-27T16:47:00+02:00</updated>
+    <id>http://ndruet.github.io//github/blog/2013/05/27/octopress</id>
+    <content type="html"><![CDATA[<p>Mes premiers mots seront consacrés à <a href="http://octopress.org">Octopress</a>, un générateur de blog statique écrit en ruby basé sur <a href="http://jekyllrb.com">JeKyll</a>.</p>
+
+<p><img class="middle" src="/images/posts/octopress-logo.png" title="logo" ></p>
+
+<!--more-->
+
+
+<h1>Simple</h1>
+
+<p>Le site généré avec ne nécessite ni base de données à administrer, ni serveur d'application, seulement un serveur HTTP.
+En quelques lignes de commande <code>rake generate|watch|preview|deploy</code>, on peut ajouter un post et publier sur GitHub. Par défaut les
+articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a> qui rendra plus simple la migration vers une nouvelle
+plateforme le jour ou Octopress ne sera plus à la mode.</p>
+
+<h1>Thèmes</h1>
+
+<p>Les thèmes sont gratuits et assurent le minimum :</p>
+
+<ul>
+<li>Présentation claire</li>
+<li>Navigation simple</li>
+<li>Responsive design</li>
+<li>Code HTML5 modifiable</li>
+</ul>
+
+
+<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et d'autres sur <a href="http://www.evolument.com/blog/2013/03/02/top-10-plus-octopress-themes/">http://www.evolument.com</a></p>
+
+<h1>Plugins</h1>
+
+<p>Octopress gère automatiquement les comptes twitter, google plus, google analytics&hellip; simplement en renseignement nos identifiants.
+On peut également inclure des Gists dans les posts, des video HTML5 et bénéficier de la coloration syntaxique sans beaucoup d'effort.</p>
+
+<h1>Ressources</h1>
+
+<p>Internet regorge de tutos pour débuter (<a href="http://techilm.com/blog/2012/07/16/creer-un-blog-sous-octopress-partie-1-presentation/">http://techilm.com</a>) mais rien en vaut la documentation officielle d'Octopress et de Jekyll.</p>
+
+<h1>Warning</h1>
+
+<p>Le plus compliqué est d'installer Ruby, Octopress (sur Windows dans mon cas) et de personnaliser son thème.
+Les fichiers sont par défaut en ANSI. Au passage des posts en UTF-8 j'ai du m'assurer qu'ils étaient encoder sans <a href="Byte%20order%20mark">Byte order mark</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
