@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Octopress | Bloc note sur Java/JEE]]></title>
-  <link href="http://ndruet.github.io//github/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://ndruet.github.io//github/"/>
-  <updated>2013-06-03T15:30:24+02:00</updated>
-  <id>http://ndruet.github.io//github/</id>
+  <title><![CDATA[Category: Octopress | Bloc notes sur Java/JEE]]></title>
+  <link href="http://ndruet.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ndruet.github.io/"/>
+  <updated>2013-06-03T17:05:09+02:00</updated>
+  <id>http://ndruet.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Druet]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress]]></title>
-    <link href="http://ndruet.github.io//github/blog/2013/05/27/octopress/"/>
+    <link href="http://ndruet.github.io/blog/2013/05/27/octopress/"/>
     <updated>2013-05-27T16:47:00+02:00</updated>
-    <id>http://ndruet.github.io//github/blog/2013/05/27/octopress</id>
+    <id>http://ndruet.github.io/blog/2013/05/27/octopress</id>
     <content type="html"><![CDATA[<p>Mes premiers mots seront consacrés à <a href="http://octopress.org">Octopress</a>, un générateur de blog statique écrit en ruby basé sur <a href="http://jekyllrb.com">JeKyll</a>.</p>
 
 <p><img class="middle" src="/images/posts/octopress-logo.png" title="logo" ></p>
