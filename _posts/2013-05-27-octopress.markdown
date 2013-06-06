@@ -50,13 +50,13 @@ C’est la principale raison pour laquelle j’écris les posts avec Notepad++.
 Au moment de déployer sur GitHub, j’ai du corriger un problème lié au message d’erreur suivant :
 > *‘hellip’ is not recognized as an internal or external command, operable program or batch file.*
 
-et modifier la variable branch du fichier Rakefile afin que l’expression régulière accepte les urls HTTPS.
+et modifier la variable branch du fichier ```Rakefile``` afin que l’expression régulière accepte les urls HTTPS.
 [Le blog de David Tellander](http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/) m’a beaucoup aidé.
 
 ### > GitHub
 J’ai également du forcer Octopress à publier sur la branche master (Organization Pages) de Github en modifier la variable *branch* de ```Rakefile``` sans quoi le blog était pusher sur *gh-pages* (Project Page).
 ### > Coloration synthaxique
-Le site ne mentionne pas que Python (version 2.7.5) est indispensable pour le bon fonctionnement de la coloration synthaxique. Une fois installé, la spécification de la langue dans les blocs de code est bien prise en compte.
+Le site ne mentionne pas que Python (version 2.7.5) est indispensable pour le bon fonctionnement de la coloration synthaxique. Une fois installé, la langue dans les blocs de code est bien prise en compte.
 
 # Ressources
 La documentation officielle décrit étape par étape comment installer, rédiger et publier. Pour les utilisateurs sous Windows 
