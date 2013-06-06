@@ -139,14 +139,25 @@ posted in
 
 <h1>Simple</h1>
 
-<p>Le site généré avec ne nécessite ni base de données à administrer, ni serveur d&#8217;application, seulement un serveur HTTP.
-En quelques lignes de commande <code>rake generate|watch|preview|deploy</code>, on peut ajouter un post et publier sur GitHub. Par défaut les
-articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a> qui rendra plus simple la migration vers une nouvelle
-plateforme le jour ou Octopress ne sera plus à la mode.</p>
+<p>L&#8217;avantage d&#8217;un générateur de blog statique est sa simplicité de fonctionnement. Aucune base de données, ni de serveur d&#8217;application ne sont nécessaires.
+Quelques lignes de commandes suffisent pour créer un post et le publier sur GitHub. Par défaut les
+articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
+<p>Les principales commandes sont :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate   # Genère entièrement le site à partir du fichier _config.xml et les répertoires /sources et /saas
+</span><span class='line'>rake preview    # Scrute seulement /sources (les fichiers web et les posts) pour les changements, et monte un serveur http://localhost:4000
+</span><span class='line'>rake new_post["title"] # Création d'un nouveau post
+</span><span class='line'>rake deploy     # Déploiement sur GitHub</span></code></pre></td></tr></table></div></figure>
+
 
 <h1>Thèmes</h1>
 
-<p>Les thèmes sont gratuits et assurent le minimum :</p>
+<p>Les thèmes sont gratuits, disponibles sur GitHub, s&#8217;installent facilement et assurent le minimum :</p>
 
 <ul>
 <li>Présentation claire</li>
@@ -156,21 +167,45 @@ plateforme le jour ou Octopress ne sera plus à la mode.</p>
 </ul>
 
 
-<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et d&#8217;autres sur <a href="http://www.evolument.com/blog/2013/03/02/top-10-plus-octopress-themes/">http://www.evolument.com</a></p>
+<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et d&#8217;autres sur <a href="http://www.evolument.com/blog/2013/03/02/top-10-plus-octopress-themes/">http://www.evolument.com</a>.</p>
 
 <h1>Plugins</h1>
 
-<p>Octopress gère automatiquement les comptes twitter, google plus, google analytics&hellip; simplement en renseignement nos identifiants.
-On peut également inclure des Gists dans les posts, des video HTML5 et bénéficier de la coloration syntaxique sans beaucoup d&#8217;effort.</p>
+<p>Octopress gère automatiquement les comptes twitter, google+, google analytics&hellip; simplement en renseignement ses identifiants dans le fichier <code>_config.xml</code>
+On peut également inclure des Gists, des videos HTML5 et bénéficier de la coloration syntaxique sans trop d&#8217;effort.</p>
+
+<h1>Problèmes rencontrés</h1>
+
+<p>Du téléchargement d&#8217;Octopress à la publication sur Github, tout n&#8217;a pas été si simple.</p>
+
+<h3>> UTF-8</h3>
+
+<p>Au passage des posts en UTF-8, j&#8217;ai du m&#8217;assurer qu&#8217;ils étaient encoder sans <a href="Byte%20order%20mark">Byte order mark</a>, sans quoi les accents ne s&#8217;affichaient pas dans le navigateur. C&#8217;est la principale raison pour laquelle j&#8217;écris les posts avec Notepad++.</p>
+
+<h3>> Windows</h3>
+
+<p>Au moment de déployer sur GitHub, j&#8217;ai du corriger un problème lié au message d&#8217;erreur suivant :</p>
+
+<blockquote><p><em>&lsquo;hellip&rsquo; is not recognized as an internal or external command, operable program or batch file.</em></p></blockquote>
+
+<p>et modifier la variable <em>branch</em> du fichier <code>Rakefile</code> afin que l&#8217;expression régulière accepte les urls HTTPS. <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">Le blog de David Tellander</a> m&#8217;a beaucoup aidé.</p>
+
+<h3>> GitHub</h3>
+
+<p>J&#8217;ai également du forcer Octopress à publier sur la branche <em>master</em> (Organization Pages) de Github en modifier la variable <em>branch</em> de <code>Rakefile</code> sans quoi le blog était pusher sur <em>gh-pages</em> (Project Page).</p>
+
+<h3>> Coloration synthaxique</h3>
+
+<p>Le site ne mentionne pas que Python (version 2.7.5) est indispensable pour le bon fonctionnement de la coloration synthaxique. Une fois installé, la spécification de la langue dans les blocs de code est bien prise en compte.</p>
 
 <h1>Ressources</h1>
 
-<p>Internet regorge de tutos pour débuter (<a href="http://techilm.com/blog/2012/07/16/creer-un-blog-sous-octopress-partie-1-presentation/">http://techilm.com</a>) mais rien en vaut la documentation officielle d&#8217;Octopress et de Jekyll.</p>
+<p>La documentation officielle décrit étape par étape comment installer, rédiger et publier. Pour les utilisateurs sous Windows un tour <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> vous évitera de vous arracher les cheveux.</p>
 
-<h1>Warning</h1>
+<h1>Conclusion</h1>
 
-<p>Le plus compliqué est d&#8217;installer Ruby, Octopress (sur Windows dans mon cas) et de personnaliser son thème.
-Les fichiers sont par défaut en ANSI. Au passage des posts en UTF-8 j&#8217;ai du m&#8217;assurer qu&#8217;ils étaient encoder sans <a href="Byte%20order%20mark">Byte order mark</a>.</p>
+<p>Pour l&#8217;instant, Octopress répond parfaitement à mes besoins. Je reste persuadé que si j&#8217;étais sous Linux l&#8217;installation se serait passée plus simplement. Mais une fois tous les problèmes réglés, la publication d&#8217;un billet est un jeu d&#8217;enfant.
+Une communauté semble se développé autour du projet (Jekyll de manière plus générale) mais l&#8217;activité sur GitHub n&#8217;est pas dingue ces derniers temps.</p>
 </div>
 
 
@@ -211,8 +246,6 @@ posted in
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ndruet.github.io/blog/2013/05/27/octopress/" data-via="" data-counturl="http://ndruet.github.io/blog/2013/05/27/octopress/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -316,16 +349,6 @@ posted in
   </script>
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
