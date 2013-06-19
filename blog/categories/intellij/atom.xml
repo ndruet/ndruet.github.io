@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Intellij | Bloc notes sur Java/JEE]]></title>
+  <link href="http://ndruet.github.io/blog/categories/intellij/atom.xml" rel="self"/>
+  <link href="http://ndruet.github.io/"/>
+  <updated>2013-06-19T18:03:03+02:00</updated>
+  <id>http://ndruet.github.io/</id>
+  <author>
+    <name><![CDATA[Nicolas Druet]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[D'&#201;clipse &#224; Intellij]]></title>
+    <link href="http://ndruet.github.io/blog/2013/06/12/declipse-a-intellij/"/>
+    <updated>2013-06-12T11:11:00+02:00</updated>
+    <id>http://ndruet.github.io/blog/2013/06/12/declipse-a-intellij</id>
+    <content type="html"><![CDATA[<p>Intellij est un IDE Java développé par JetBrains, disponible en deux versions; une version open source <strong>Community Edition</strong> limitée; une version complète <strong>Ultimate</strong> nécessitant l'achat d'une license (<a href="http://www.jetbrains.com/idea/features/editions_comparison_matrix.html">matrice de comparaison</a>).</p>
+
+<p>Après 8 ans sous d'Eclipse, j'ai décidé de migrer mes projets dessus pour voir si sa réputation était justifiée.</p>
+
+<p><img class="middle" src="/images/posts/intellij-logo.png" title="logo" ></p>
+
+<!--more-->
+
+
+<h1>Les points +</h1>
+
+<p>Le développement sous Intellij m'a paru bien plus agréable qu'avec Eclipse pour les raisons suivantes :</p>
+
+<ul>
+<li>Complétion immédiate (il n'est plus nécessaire de faire CTRL+SPACE) et plus intelligente (complétion SQL dans un fichier Java)</li>
+<li>Prise en charge native de MAVEN, SVN et GIT (aucun plugin à télécharger)</li>
+<li>Support de nombreux frameworks Play, Grails, Scala&hellip; (sous Eclipse 4.2 le plugin scala est en béta et Spring Tool Suite est basé sur Eclipse 3.8)</li>
+<li>Outil de test de services REST inclu (j'en ai profité pour désinstaller HttpRequester sous Firefox)</li>
+<li>Sauvegarde automatique des fichiers (l'historique local du fichier ne dépend pas d'un CTRL+S)</li>
+<li>Partage simple de la configuration de l'IDE, soit par un serveur dédié <a href="http://www.jetbrains.com/idea/features/settings_sync.html">JetBrain</a>, soit avec son <a href="http://devnet.jetbrains.com/docs/DOC-1186">gestionnaire de source</a></li>
+<li>Editeur SQL avec complétion et export des resultats (Eclipse le propose également)</li>
+<li>IHM moderne et qui ne gèle pas (le thème Darcula est magnifique)</li>
+<li>Couverture de code intégrée (mais je garde une préférence pour EclEmma dans Eclipse)</li>
+<li>Presse papier avec historique (CTRL+SHIFT+V)</li>
+<li>Zoom+/&ndash; avec la molette de la souris (à activer)</li>
+<li>Refactoring plus intelligent (quand on renomme une classe, les requêtes JPA sont mises à jour)</li>
+</ul>
+
+
+<h1>Les points &ndash;</h1>
+
+<p>Si Intellij m'a fait bonne impression, certains fonctionnements par défaut m'ont pertubé dès l'ouverture du premier projet.</p>
+
+<h3>> Le prix</h3>
+
+<p>Commençons par le point qui fâche.
+L'acquisition IntelliJ coûtera, la premère fois, 179 € HT pour une licence personnelle (89 € HT pour les étudiants) .
+Les mises à jours sont ensuite 40% moins chères en moyenne.
+A noter également que <a href="http://blog.jetbrains.com/blog/2013/04/15/50-off-jetbrains-tools-and-help-to-plant-a-billion-trees/">des offres</a> ont existé dans le passé allant jusqu'à 50% de réduction sur le prix des licences.
+Pour clore le sujet, la version <strong>Ultimate</strong> est disponible gratuitement 30 jours.</p>
+
+<h3>> Le position du curseur dans l'éditeur</h3>
+
+<p>Le curseur dans l'éditeur se positionne là où le pointeur de la souris se trouve, qu'il y ait un retour à ligne ou non.
+Pour retrouver un comportement habituel : <em>File > Settings > Editor ></em> et décocher <strong>Allow placement of caret after end of line</strong>.</p>
+
+<h3>> Les raccourcis clavier</h3>
+
+<p>La principale difficulté que j'ai rencontrée concerne les raccourcis clavier.
+D'une manière générale, je ne les trouve pas très bien pensés.
+Les combinaisons de touches avec F1&hellip;12 ne sont pas pratiques et trop souvent les deux mains sont sollicités.</p>
+
+<p>Mais il est possible de les remplacer par ceux d'Eclipse ou NetBeans.
+Pour cela : <em>File > Settings > Keymap</em></p>
+
+<p><img class="middle" src="/images/posts/intellij_shortcut.png" title="curseur" ></p>
+
+<p>Attention : CTRL+Y (redo) n'est pas l'inverse de CTRL+Z (undo) mais supprime la ligne sur laquelle est positionné votre curseur.</p>
+
+<h3>> Debug : Popup au survole des variables</h3>
+
+<p>Le delai d'affichage de la popup sur les variables en mode Debug est par défaut de 700ms. Pour le changer : <em>File > Settings > Debugger > Data Views</em>
+et modifier la valeur de <strong>Value tooltips delay(ms)</strong>. En mettant 100ms, la popup s'affiche immédiatement.</p>
+
+<h1>Ressources</h1>
+
+<p>JetBrains met à disposition une <a href="http://www.jetbrains.com/idea/documentation/migration_faq.html">FAQ</a> pour aider la migration d'Eclipse vers Intellij.
+On trouve également sur leur site <a href="http://www.jetbrains.com/resharper/webhelp/Reference__Keyboard_Shortcuts.html">une liste de raccourcis</a> ordonnée par catégorie (Navigation and search, Refactorings&hellip;) qui peut être utile d'avoir sous la main.
+Enfin, lors du Devoxx 2013, un talk a été consacré aux astuces pour gagner en productivité sur Netbeans, Eclipse et Intellij.
+Je vous invite à suivre la présentation disponible sur <a href="http://www.devoxx.com/display/FR13/IDE+Java+++astuces+de+productivite+pour+le+quotidien">Parleys.com</a>.</p>
+
+<h1>Conclusion</h1>
+
+<p>Cette expèrience m'a fait prendre conscience de toutes les lacunes d'Eclipse.
+En effet, il n'est pas normal d'avoir une option pour redémarrer l'IDE, de faire <em>F5</em> et <em>clean</em> sur un projet pour qu'il s'importe correctement,
+ou encore de forcer la mise à jour des dépendances Maven après avoir modifié le <code>pom.xml</code>.
+Les developpeurs ont besoin d'un outil fiable qui prend en charge les dernières technologies.
+C'est ce que Intellij propose. Malheureusement, cela a un prix.
+Mais il est certain que les équipes d'Eclipse doivent se ressaisir.
+Le désamour est croissant depuis la branche 4.x. <a href="http://www.springsource.org/downloads/sts-ggts">Spring Tool Suite</a> reste basé sur la version 3.8 réputée plus fiable et l'annonce d'<a href="http://developer.android.com/sdk/installing/studio.html">AndroidStudio</a> basé sur Intellij au dernier Google I/O sont autant de signes qui vont dans ce sens.
+C'est finalement Netbeans qui risque de gagner le plus en popularité : à la fois gratuit, plus réactif qu'Eclipse dans les mises à jours et plus stable.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -141,11 +141,12 @@ posted in
 
 <h1>Simple</h1>
 
-<p>L’avantage d’un générateur de blog statique est sa simplicité de fonctionnement. Aucune base de données, ni de serveur d’application ne sont nécessaires.
-Quelques lignes de commandes suffisent pour créer un post et le publier sur GitHub. Par défaut les articles suivent la synthaxe
-<a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+<p>L’avantage principal d’un générateur de blog statique est sa simplicité de fonctionnement.
+Aucune base de données, ni de serveur d’application ne sont nécessaires.
+On obtient donc un site qui tient la charge même avec une forte audience.</p>
 
-<p>Les principales commandes sont :</p>
+<p>Octopress permet en quelques lignes de commande de créer un post et publier sur GitHub.
+Les principales commandes sont :</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -157,9 +158,11 @@ Quelques lignes de commandes suffisent pour créer un post et le publier sur Git
 </span><span class='line'>rake deploy     # Déploiement sur GitHub</span></code></pre></td></tr></table></div></figure>
 
 
+<p>Par défaut les articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+
 <h1>Thèmes</h1>
 
-<p>Les thèmes sont gratuits, disponibles sur GitHub, s’installent facilement et assurent le minimum :</p>
+<p>Les thèmes sont disponibles sur GitHub, s’installent facilement et assurent le minimum :</p>
 
 <ul>
 <li>Présentation claire</li>
@@ -173,45 +176,74 @@ Quelques lignes de commandes suffisent pour créer un post et le publier sur Git
 
 <h1>Plugins</h1>
 
-<p>Octopress gère automatiquement les comptes twitter, google+, google analytics… simplement en renseignement ses identifiants dans le fichier <code>_config.xml</code>.
-On peut également inclure des Gists, des videos HTML5 et bénéficier de la coloration syntaxique sans trop d’effort.</p>
+<p>L&#8217;interfaçage avec les comptes twitter, google+, google analytics… s&#8217;effectue simplement en renseignement ses identifiants dans le fichier <code>_config.xml</code>.
+On peut également inclure des Gists, des videos HTML5 et bénéficier de la coloration syntaxique.</p>
 
 <h1>Problèmes rencontrés</h1>
 
-<p>Du téléchargement d’Octopress à la publication sur Github, tout n’a pas été si simple.</p>
+<p>Mais voila, du téléchargement d’Octopress à la publication sur Github, tout n’a pas été si simple.
+Heureusement, <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> a répondu à la plupart de mes problèmes cités ci-dessous.</p>
 
-<h3>> UTF-8</h3>
+<h3>> UTF-8 &ndash; Les accents</h3>
 
-<p>Au passage des posts en UTF-8, j’ai du m’assurer qu’ils étaient encoder sans Byte order mark, sans quoi les accents ne s’affichaient pas dans le navigateur.
-C’est la principale raison pour laquelle j’écris les posts avec Notepad++.</p>
+<p>La gestion des accents n&#8217;a pas évidente :</p>
 
-<h3>> Windows</h3>
+<ul>
+<li>La commande rake generate échoue si un accent est présent dans la partie descriptive du post <a href="http://fr.wikipedia.org/wiki/YAML">YAML</a>. J&#8217;ai donc du remplacer les lettres par leur <a href="http://www.commentcamarche.net/contents/489-caracteres-speciaux-html">codes ISO</a>.</li>
+<li>Pour que les accents s&#8217;affichent dans le corps du post, il m&#8217;a fallu encoder les posts en UTF-8 (sans <a href="http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8">Byte Order Mark</a> comme précisé dans <a href="http://jekyllrb.com/docs/frontmatter/">la documentation Jekyll</a>  ).</br></br></li>
+</ul>
 
-<p>Au moment de déployer sur GitHub, j’ai du corriger un problème lié au message d’erreur suivant :</p>
+
+<h3>> Windows &ndash; Commande inexistante</h3>
+
+<p>Au moment de déployer sur GitHub, le message suivant s&#8217;est affiché :</p>
 
 <blockquote><p><em>‘hellip’ is not recognized as an internal or external command, operable program or batch file.</em></p></blockquote>
 
-<p>et modifier la variable <em>branch</em> du fichier <code>Rakefile</code> afin que l’expression régulière accepte les urls HTTPS.
-<a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">Le blog de David Tellander</a> m’a beaucoup aidé. On y retrouve en détails ces modifications.</p>
+<p>La correction a consisté à remplacer <code>&amp;hellip;</code> par <code>...</code> dans le fichier <code>RakeFile</code> à la ligne suivante :</p>
 
-<h3>> GitHub</h3>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>system "echo 'My Octopress Page is coming soon &hellip' &gt; index.html"</span></code></pre></td></tr></table></div></figure>
 
-<p>J’ai également du forcer Octopress a publier sur la branche master (Organization Pages) de Github en modifiant la variable <em>branch</em> de <code>Rakefile</code> sans quoi le blog était pusher sur <em>gh-pages</em> (Project Page).</p>
+
+<h3>> GitHub &ndash; HTTPS et les branches</h3>
+
+<p>Le client SSH étant absent de mon post, j&#8217;ai du modifier la variable <em>branch</em> du fichier <code>Rakefile</code> pour que l’expression régulière accepte les urls HTTPS au déploiement du blog (<a href="https://github.com/imathis/octopress/commit/f5bb4dd89ea64181910acb8ef0df5ae84644b75d">corrigé le 1er juin 2013</a>).
+Mais une fois l&#8217;URL acceptée, conséquence directe ou non, Octopress n&#8217;a jamais voulu publier sur une autre branche que <em>gh-pages</em> (Project Page) au lieu de master (Organization Pages).
+J&#8217;ai donc finalement préciser manuellement la branche dans le fichier <code>Rakefile</code> :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>branch = 'master'
+</span><span class='line'>project = ''</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>> Coloration synthaxique</h3>
 
-<p>Le site ne mentionne pas que Python (version 2.7.5) est indispensable pour le bon fonctionnement de la coloration synthaxique. Une fois installé, la langue dans les blocs de code est bien prise en compte.</p>
+<p>La présence de la langue dans les blocs de code cassait systématiquement la génération du site :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>''' java
+</span><span class='line'>public class Toto {
+</span><span class='line'>}
+</span><span class='line'>'''</span></code></pre></td></tr></table></div></figure>
+
+
+<p>En effet <a href="http://www.python.org/download/releases/2.7.5/">Python (version 2.7.5)</a> est indispensable pour l&#8217;application de la coloration synthaxique.</p>
 
 <h1>Ressources</h1>
 
-<p>La documentation officielle décrit étape par étape comment installer, rédiger et publier. Pour les utilisateurs sous Windows
-un tour sur <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> vous évitera de vous arracher les cheveux.</p>
+<p>La <a href="http://octopress.org/docs/">documentation officielle</a> décrit étape par étape comment installer, rédiger et publier sur GitHub ou Heroku.
+Pour les utilisateurs Windows, un tour sur <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> vous évitera de vous arracher les cheveux.</p>
 
 <h1>Conclusion</h1>
 
-<p>Pour l’instant, Octopress répond parfaitement à mes besoins. Je reste persuadé que si j’étais sous Linux l’installation se serait passée plus simplement.
+<p>Pour l’instant, Octopress répond parfaitement à mes besoins. Je suis persuadé que si j’étais sous Linux ma première publication se serait passée plus simplement.
 Mais une fois tous les problèmes réglés, la publication d’un billet est un jeu d’enfant. Une communauté semble se développer autour du projet (Jekyll de manière plus générale)
-mais l’activité sur GitHub n’est pas dingue ces derniers temps.</p>
+mais l’activité sur <a href="https://github.com/imathis/octopress">GitHub</a> n’est pas dingue ces derniers temps.</p>
 </div>
 
 
@@ -262,6 +294,8 @@ posted in
     
     
     
+      <a class="pull-right" href="/blog/2013/06/12/declipse-a-intellij/" title="Next Post: D'&#201;clipse &#224; Intellij">D'&#201;clipse &#224; Intellij &raquo;</a>
+    
   </footer>
 
 </div>
@@ -282,6 +316,10 @@ posted in
   <div class="span3">
     <h2>Posts récents</h2>
     <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2013/06/12/declipse-a-intellij/">D'&#201;clipse &#224; Intellij</a>
+        </li>
       
         <li>
           <a href="/blog/2013/05/27/octopress/">Octopress</a>
