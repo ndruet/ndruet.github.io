@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | Bloc notes sur Java/JEE]]></title>
+  <link href="http://ndruet.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://ndruet.github.io/"/>
+  <updated>2013-08-05T16:30:32+02:00</updated>
+  <id>http://ndruet.github.io/</id>
+  <author>
+    <name><![CDATA[Nicolas Druet]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pr&#233;sentation de Lombok]]></title>
+    <link href="http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/"/>
+    <updated>2013-06-20T09:29:00+02:00</updated>
+    <id>http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok</id>
+    <content type="html"><![CDATA[<p><img style="float : left;" src="/images/posts/lombok-logo.png" title="logo" />
+<a href="http://projectlombok.org">Lombok</a> est une API dont le but est de générer à la compilation, du code Java(<em>getters()/setters(), toString()&hellip;</em>), à notre place .
+Tout se fait à l'aide de simples annotations à poser dans nos classes. Actuellement en version <a href="http://projectlombok.org/download.html">0.12 &ndash; Angry Butterfly</a>, le projet est de plus en plus populaire.</p>
+
+<!--more-->
+
+
+<p><div style="clear:both;"/>
+<br/></p>
+
+<h1>L'API</h1>
+
+<p>Il existe de nombreuses annotations, dont certaines sont directement inspirées de Groovy. En voici une sélection&hellip;</p>
+
+<h3>> @Getter et @Setter</h3>
+
+<p>Génère les getters/setters d'un attribut d'une classe :
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@Getter et @Setter </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetterSetterExample</span> <span class="o">{</span>
+</span><span class='line'>   <span class="nd">@Getter</span>
+</span><span class='line'>   <span class="nd">@Setter</span>
+</span><span class='line'>   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">toto</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Il est également possible de gérer un cache sur les getters avec <a href="http://projectlombok.org/features/GetterLazy.html">@Getter(lazy=true)</a>.</p>
+
+<h3>> @ToString et @EqualsAndHashCode</h3>
+
+<p>Implémente respectivement les méthodes <em>toString(), equals()</em> et <em>hashCode()</em></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@ToString et @EqualsAndHashCode </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@EqualsAndHashCode</span>
+</span><span class='line'><span class="nd">@ToString</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ToStringEqualsAndHashCodeExample</span> <span class="o">{</span>
+</span><span class='line'>   <span class="nd">@Getter</span>
+</span><span class='line'>   <span class="nd">@Setter</span>
+</span><span class='line'>   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">toto</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Les deux annotations permettent également d'exclure certains attributs.</p>
+
+<h3>> @Data</h3>
+
+<p>Combinaison de <em>@Getter,@Setter,@EqualsAndHashCode</em> et <em>@ToString</em>.
+Les accesseurs et les méthodes <em>toString(), equals()</em> et <em>hashCode()</em> sont générées et disponibles à la complétion.</p>
+
+<h3>> @Cleanup</h3>
+
+<p>Permet de fermer proprement une ressource ouverte sans avoir à écrire les blocs try{}/finally{}
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@Cleanup </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Cleanup</span> <span class="n">InputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>> @Delegate</h3>
+
+<p>Directement inspirée de <a href="http://groovy.codehaus.org/Delegate+transformation">Groovy</a>, génère dans un objet A contenant B toutes les méthodes de B afin d'éviter de faire <em>A.getB().XXX</em></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@Delegate </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Data</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span>  <span class="o">{</span>
+</span><span class='line'>   <span class="nd">@Delegate</span>
+</span><span class='line'>   <span class="kd">private</span> <span class="n">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+</span><span class='line'><span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Data</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">B</span>  <span class="o">{</span>
+</span><span class='line'>   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'><span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">new</span> <span class="nf">A</span><span class="o">().</span><span class="na">setName</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">toto</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>> @Builder</h3>
+
+<p>Génère comme son nom l'indique un builder.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@Builder </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Builder</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BuilderExample</span> <span class="o">{</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">BuilderExample</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">name</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">toto</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;).</span><span class="na">age</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">age</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;).</span><span class="na">build</span><span class="o">();</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>> @NonNull</h3>
+
+<p>Si <em>javax.validation.constraints.NotNull</em> existe déjà dans Java 6, elle ne fait qu'indiquer que le paramêtre ou la valeur retournée d'une méthode ne doivent pas être null.
+Lombok propose une annotation similaire <a href="https://github.com/rzwitserloot/lombok/blob/master/src/core/lombok/NonNull.java">lombok.NonNull</a> et <strong>renvoie</strong> une NullPointerException si besoin.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>@NonNull </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="nf">NonNullExample</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="n">Person</span> <span class="n">person</span><span class="o">)</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;...</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Cela évite d'utiliser les <a href="http://code.google.com/p/guava-libraries/wiki/PreconditionsExplained">Preconditions de Guava</a>.</p>
+
+<h3>> Experimentals</h3>
+
+<p>Quelques annotions sont dites &ldquo;experimental&rdquo; avant de rejoindre les &ldquo;main&rdquo; ou bien de disparaitre.
+Elles sont référencées <a href="http://projectlombok.org/features/experimental/index.html">ici</a>.
+On y retrouve <em>@Builder</em> par exemple.</p>
+
+<h1>Architecture</h1>
+
+<p>Le principe de Lombok est simple : juste avant la compilation , les fichiers sources sont parcourus afin remplacer les annotations par du code.
+Si les annotions sont apparues avec Java 5, leur gestion à la compilation (<strong>RetentionPolicy.SOURCE</strong>) nécessitait l'appel à <a href="http://docs.oracle.com/javase/1.5.0/docs/guide/apt/GettingStarted.html">Apt</a> avant l'appel à Javac.
+Avec l'arrivée de Java 6, le parcours des sources (Abstract Syntax Tree ou AST) est directement intégré au compilateur. De là est né ce projet.
+Lombok s'appuie sur la <a href="http://www.jcp.org/en/jsr/detail?id=269">JSR 269 Pluggable Annotation Processing API</a> et nécessite obligatoirement le JDK 6 pour la compilation.</p>
+
+<p>Le parcours de l'Abstract Syntax Tree est expliqué en détails sur <a href="https://www.java.net//pub/a/today/2008/04/10/source-code-analysis-using-java-6-compiler-apis.html#accessing-the-abstract-syntax-tree-the-compiler-tree-api">Java.net</a>.</p>
+
+<h1>L'installation</h1>
+
+<h3>> Projet Maven</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>pom.xml  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span>
+</span><span class='line'><span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>dependency<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>groupId<span class="ni">&amp;gt;</span>org.projectlombok<span class="ni">&amp;lt;</span>/groupId<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>artifactId<span class="ni">&amp;gt;</span>lombok<span class="ni">&amp;lt;</span>/artifactId<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>version<span class="ni">&amp;gt;</span>0.11.8<span class="ni">&amp;lt;</span>/version<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>scope<span class="ni">&amp;gt;</span>provided<span class="ni">&amp;lt;</span>/scope<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/dependency<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
+</span><span class='line'><span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="ni">&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+Ne pas oublier que Lombok requiert Java 6 au minimum dans la configuration du plugin de compilation :
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>pom.xml  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;hellip;</span>
+</span><span class='line'><span class="nt">&lt;plugins&gt;</span>
+</span><span class='line'><span class="ni">&amp;hellip;</span><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>plugin<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>artifactId<span class="ni">&amp;gt;</span>maven-compiler-plugin<span class="ni">&amp;lt;</span>/artifactId<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>version<span class="ni">&amp;gt;</span>${maven-compiler-plugin.version}<span class="ni">&amp;lt;</span>/version<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>configuration<span class="ni">&amp;gt;</span>
+</span><span class='line'>        <span class="ni">&amp;lt;</span>source<span class="ni">&amp;gt;</span>1.6<span class="ni">&amp;lt;</span>/source<span class="ni">&amp;gt;</span>
+</span><span class='line'>        <span class="ni">&amp;lt;</span>target<span class="ni">&amp;gt;</span>1.6<span class="ni">&amp;lt;</span>/target<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>/configuration<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/plugin<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;hellip;</span>
+</span><span class='line'><span class="nt">&lt;/plugins&gt;</span>
+</span><span class='line'><span class="ni">&amp;hellip;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>> IDE</h3>
+
+<p>Pour que les méthodes générées automatiquement à la compilation soient disponibles à la complétion dans notre IDE, il est nécessaire d'installer un plugin.
+Loombock est compatible avec NetBeans, Eclipse (et ses variantes) et IntelliJ.</p>
+
+<h4>Eclipse</h4>
+
+<p>Le support d'Eclipse est assuré par l'équipe même du projet.
+Une fois lombock dans les dépendances de l'application, il suffit de faire <em>Run as Application</em> et choisir la classe <em>lombok.core.Main.class</em>
+<img src="/images/posts/lombok-setup-eclipse.png" /></p>
+
+<p>En cliquand sur <em>install/update</em>, Lombok met à jour le fichier <em>eclipse.ini</em>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-javaagent:lombok.jar
+</span><span class='line'>-Xbootclasspath/a:lombok.jar</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>> IDEA IntelliJ</h4>
+
+<p>Le plugin est hébergé sur <a href="https://code.google.com/p/lombok-intellij-plugin/">Google Code</a>.
+Son installation se limité au dézippage de l'<a href="https://code.google.com/p/lombok-intellij-plugin/downloads/list">archive</a> dans le répertoire <code>/plugins</code>.
+La version du plugin dépend de la version d'IntelliJ installée.</p>
+
+<h4>> Netbeans</h4>
+
+<p>Il suffit de cocher <em>Enable Annotation Processing in Editor</em> dans les propriétés du projet (<a href="http://projectlombok.org/setup/netbeans.html">http://projectlombok.org/setup/netbeans.html</a>)</p>
+
+<h1>Delombok</h1>
+
+<p>Il est important de garder à l'esprit que la génération de code se fait à la compilation.
+Tous les outils qui se basent sur le code source de nos projets ne verront que les annotations Lombok.
+C'est pourquoi la JavaDoc générée est imcomplète car Lombok n'a pas encore mis à jour les sources.</p>
+
+<p>L'équipe du projet a inclu dans <em>lombok.jar</em>, l'outil <em>delombok</em> qui copie les sources modifiées dans le répertoire de son choix.
+L'interêt est double : il permet d'apercevoir le code généré mais également d'indiquer ce répertoire à la génération de la JavaDoc afin que toutes les méthodes y soient référencées.</p>
+
+<p>Delombok est à la fois compatible avec Ant (<a href="http://projectlombok.org/features/delombok.html">http://projectlombok.org/features/delombok.html</a>) et Maven (<a href="http://awhitford.github.com/lombok.maven/">http://awhitford.github.com/lombok.maven/</a>).</p>
+
+<h1>GWT</h1>
+
+<p>Lombok semble compatible avec GWT.
+Malheureusement je reste sur un échec.
+<a href="https://groups.google.com/forum/#!topic/project-lombok/WwiymShYBsg">https://groups.google.com/forum/#!topic/project-lombok/WwiymShYBsg</a></p>
+
+<h1>Conclusion</h1>
+
+<p>A consommer sans modération !</p>
+
+<h1>Les ressources</h1>
+
+<ul>
+<li>Projet Lombok &ndash; <a href="http://projectlombok.org">http://projectlombok.org</a></li>
+<li>Documentation &ndash; <a href="http://projectlombok.org/api/index.html">http://projectlombok.org/api/index.html</a></li>
+<li>Projet GitHub &ndash; <a href="https://github.com/rzwitserloot/lombok">https://github.com/rzwitserloot/lombok</a></li>
+</ul>
+
+
+<p><a href="http://notatube.blogspot.fr/2010/12/project-lombok-creating-custom.html">http://notatube.blogspot.fr/2010/12/project-lombok-creating-custom.html</a>
+<a href="http://jnb.ociweb.com/jnb/jnbJan2010.html">http://jnb.ociweb.com/jnb/jnbJan2010.html</a></p>
+]]></content>
+  </entry>
+  
+</feed>
