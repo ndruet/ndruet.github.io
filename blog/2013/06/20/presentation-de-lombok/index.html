@@ -1,24 +1,133 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Bloc notes sur Java/JEE]]></title>
-  <link href="http://ndruet.github.io/atom.xml" rel="self"/>
-  <link href="http://ndruet.github.io/"/>
-  <updated>2013-08-05T16:27:45+02:00</updated>
-  <id>http://ndruet.github.io/</id>
-  <author>
-    <name><![CDATA[Nicolas Druet]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Pr&#233;sentation de Lombok - Bloc notes sur Java/JEE</title>
+  <meta name="author" content="Nicolas Druet">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   
-  <entry>
-    <title type="html"><![CDATA[Pr&#233;sentation de Lombok]]></title>
-    <link href="http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/"/>
-    <updated>2013-06-20T09:29:00+02:00</updated>
-    <id>http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok</id>
-    <content type="html"><![CDATA[<p><img style="float : left;" src="http://ndruet.github.io/images/posts/lombok-logo.png" title="logo" />
+    
+  
+  <meta name="description" content="Lombok est une API dont le but est de générer à la compilation, du code Java(getters()/setters(), toString()&hellip;), à notre place .
+Tout se &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bloc notes sur Java/JEE" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Bloc notes sur Java/JEE" />
+  <meta name="og:title" content="Pr&#233;sentation de Lombok" />
+  <meta name="og:description" content="Lombok est une API dont le but est de générer à la compilation, du code Java(getters()/setters(), toString()&hellip;), à notre place .
+Tout se &hellip;" />
+  <meta name="og:url" content="http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/"/>
+  <meta name="url" content="http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=Cabin:600' rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41326799-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">Bloc notes sur Java/JEE</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:ndruet.github.io" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span10 offset1" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">Pr&#233;sentation de Lombok</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/nicolas.druet?rel=author"><span class="fn">Nicolas Druet</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-20T09:29:00+02:00" pubdate data-updated="true">Jun 20<span>th</span>, 2013</time> - 
+        
+
+
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img style="float : left;" src="/images/posts/lombok-logo.png" title="logo" />
 <a href="http://projectlombok.org">Lombok</a> est une API dont le but est de générer à la compilation, du code Java(<em>getters()/setters(), toString()&hellip;</em>), à notre place .
 Tout se fait à l&#8217;aide de simples annotations à poser dans nos classes. Actuellement en version <a href="http://projectlombok.org/download.html">0.12 &ndash; Angry Butterfly</a>, le projet est de plus en plus populaire.</p>
 
@@ -244,7 +353,7 @@ Loombock est compatible avec NetBeans, Eclipse (et ses variantes) et IntelliJ.</
 
 <p>Le support d&#8217;Eclipse est assuré par l&#8217;équipe même du projet.
 Une fois lombock dans les dépendances de l&#8217;application, il suffit de faire <em>Run as Application</em> et choisir la classe <em>lombok.core.Main.class</em>
-<img src="http://ndruet.github.io/images/posts/lombok-setup-eclipse.png" /></p>
+<img src="/images/posts/lombok-setup-eclipse.png" /></p>
 
 <p>En cliquand sur <em>install/update</em>, Lombok met à jour le fichier <em>eclipse.ini</em></p>
 
@@ -295,247 +404,177 @@ Malheureusement je reste sur un échec.
 
 <p><a href="http://notatube.blogspot.fr/2010/12/project-lombok-creating-custom.html">http://notatube.blogspot.fr/2010/12/project-lombok-creating-custom.html</a>
 <a href="http://jnb.ociweb.com/jnb/jnbJan2010.html">http://jnb.ociweb.com/jnb/jnbJan2010.html</a></p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Migrer d'&#201;clipse &#224; Intellij]]></title>
-    <link href="http://ndruet.github.io/blog/2013/06/12/migrer-declipse-a-intellij/"/>
-    <updated>2013-06-12T11:11:00+02:00</updated>
-    <id>http://ndruet.github.io/blog/2013/06/12/migrer-declipse-a-intellij</id>
-    <content type="html"><![CDATA[<p>Intellij est un IDE Java développé par JetBrains, disponible en deux versions; une version open source <strong>Community Edition</strong> limitée; une version complète <strong>Ultimate</strong> nécessitant l&#8217;achat d&#8217;une license (<a href="http://www.jetbrains.com/idea/features/editions_comparison_matrix.html">matrice de comparaison</a>).</p>
-
-<p>Après 8 ans sous d&#8217;Eclipse, j&#8217;ai décidé de migrer mes projets dessus pour voir si sa réputation était justifiée.</p>
-
-<p><img class="middle" src="http://ndruet.github.io/images/posts/intellij-logo.png" title="logo" ></p>
-
-<!--more-->
 
 
-<h1>Les points +</h1>
-
-<p>Le développement sous Intellij m&#8217;a paru bien plus agréable qu&#8217;avec Eclipse pour les raisons suivantes :</p>
-
-<ul>
-<li>Complétion immédiate (il n&#8217;est plus nécessaire de faire CTRL+SPACE) et plus intelligente (complétion SQL active même dans un fichier .java)</li>
-<li>Prise en charge native de MAVEN, SVN et GIT (aucun plugin à télécharger)</li>
-<li>Support de nombreux frameworks Play, Grails, Scala&hellip; (sous Eclipse 4.2 le plugin scala est en béta et Spring Tool Suite est basé sur Eclipse 3.8)</li>
-<li>Outil de test de services REST inclu (j&#8217;en ai profité pour désinstaller HttpRequester sous Firefox)</li>
-<li>Sauvegarde automatique des fichiers (l&#8217;historique local du fichier ne dépend pas d&#8217;un CTRL+S)</li>
-<li>Partage simple de la configuration de l&#8217;IDE, soit par un serveur dédié <a href="http://www.jetbrains.com/idea/features/settings_sync.html">JetBrain</a>, soit avec son <a href="http://devnet.jetbrains.com/docs/DOC-1186">gestionnaire de source</a></li>
-<li>Editeur SQL avec complétion et export des resultats (Eclipse le propose également)</li>
-<li>IHM moderne et qui ne gèle pas (le thème Darcula est magnifique)</li>
-<li>Couverture de code intégrée (mais je garde une préférence pour EclEmma dans Eclipse)</li>
-<li>Presse papier avec historique (CTRL+SHIFT+V)</li>
-<li>Zoom+/&ndash; avec la molette de la souris (à activer)</li>
-<li>Refactoring plus intelligent (ex : Quand on renomme une classe, les requêtes JPA sont mises à jour)</li>
-</ul>
-
-
-<h1>Les points &ndash;</h1>
-
-<p>Si Intellij m&#8217;a fait bonne impression, certains fonctionnements par défaut m&#8217;ont pertubé dès l&#8217;ouverture du premier projet.</p>
-
-<h3>> Le prix</h3>
-
-<p>Commençons par le point qui fâche.
-L&#8217;acquisition IntelliJ coûtera, la premère fois, 179 € HT pour une licence personnelle (89 € HT pour les étudiants) .
-Les mises à jours sont ensuite 40% moins chères en moyenne.
-A noter également que <a href="http://blog.jetbrains.com/blog/2013/04/15/50-off-jetbrains-tools-and-help-to-plant-a-billion-trees/">des offres</a> ont existé dans le passé allant jusqu&#8217;à 50% de réduction sur le prix des licences.
-Pour clore le sujet, la version <strong>Ultimate</strong> est disponible gratuitement 30 jours.</p>
-
-<h3>> Le position du curseur dans l&#8217;éditeur</h3>
-
-<p>Le curseur dans l&#8217;éditeur se positionne là où le pointeur de la souris se trouve, qu&#8217;il y ait un retour à ligne ou non dans le fichier source.
-Pour retrouver un comportement habituel : <em>File > Settings > Editor ></em> et décocher <strong>Allow placement of caret after end of line</strong>.</p>
-
-<h3>> Les raccourcis clavier</h3>
-
-<p>La principale difficulté que j&#8217;ai rencontrée concerne les raccourcis clavier.
-D&#8217;une manière générale, je ne les trouve pas très bien pensés.
-Les combinaisons de touches avec F1&hellip;12 ne sont pas pratiques et trop souvent les deux mains sont sollicités.</p>
-
-<p>Mais il est possible de les remplacer par ceux d&#8217;Eclipse ou NetBeans.
-Pour cela : <em>File > Settings > Keymap</em></p>
-
-<p><img class="middle" src="http://ndruet.github.io/images/posts/intellij_shortcut.png" title="curseur" /></p>
-
-<p class="warning"> CTRL+Y (redo) n&#8217;est pas l&#8217;inverse de CTRL+Z (undo) mais supprime la ligne sur laquelle est positionné votre curseur. </p>
-
-
-<h3>> Debug : Popup au survole des variables</h3>
-
-<p>Le delai d&#8217;affichage de la popup sur les variables en mode Debug est par défaut de 700ms. Pour le changer : <em>File > Settings > Debugger > Data Views</em>
-et modifier la valeur de <strong>Value tooltips delay(ms)</strong>. En mettant 100ms, la popup s&#8217;affiche immédiatement.</p>
-
-<h1>Ressources</h1>
-
-<p>JetBrains met à disposition une <a href="http://www.jetbrains.com/idea/documentation/migration_faq.html">FAQ</a> pour aider la migration d&#8217;Eclipse vers Intellij.
-On trouve également sur leur site <a href="http://www.jetbrains.com/resharper/webhelp/Reference__Keyboard_Shortcuts.html">une liste de raccourcis</a> ordonnées par catégorie (Navigation and search, Refactorings&hellip;) qui peut être utile d&#8217;avoir sous la main.
-Enfin, lors du Devoxx 2013, un talk a été consacré aux astuces pour gagner en productivité sur Netbeans, Eclipse et Intellij.
-Je vous invite à suivre la présentation disponible sur <a href="http://www.devoxx.com/display/FR13/IDE+Java+++astuces+de+productivite+pour+le+quotidien">Parleys.com</a>.</p>
-
-<h1>Conclusion</h1>
-
-<p>Cette expèrience m&#8217;a fait prendre conscience de toutes les lacunes d&#8217;Eclipse.
-En effet, il n&#8217;est pas normal d&#8217;avoir une option pour redémarrer l&#8217;IDE, de faire <em>F5</em> et <em>clean</em> sur un projet pour qu&#8217;il s&#8217;importe correctement, ou encore de forcer la mise à jour des dépendances Maven après avoir modifié le <code>pom.xml</code>.
-Les developpeurs ont besoin d&#8217;un outil fiable qui prend en charge les dernières technologies.
-C&#8217;est ce que Intellij propose. Malheureusement, cela a un prix.
-Une chose est sûre, les équipes d&#8217;Eclipse doivent se ressaisir.
-Le désamour est croissant depuis la branche 4.x. <a href="http://www.springsource.org/downloads/sts-ggts">Spring Tool Suite</a> reste basé sur la version 3.8 réputée plus fiable et l&#8217;annonce d&#8217;<a href="http://developer.android.com/sdk/installing/studio.html">AndroidStudio</a> basé sur Intellij au dernier Google I/O sont autant de signes qui vont dans ce sens.
-C&#8217;est finalement Netbeans qui risque de gagner le plus en popularité : à la fois gratuit, plus réactif qu&#8217;Eclipse dans les mises à jours et plus stable.</p>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Cr&#233;er un blog avec Octopress sous Windows]]></title>
-    <link href="http://ndruet.github.io/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows/"/>
-    <updated>2013-05-27T16:47:00+02:00</updated>
-    <id>http://ndruet.github.io/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows</id>
-    <content type="html"><![CDATA[<p>L&#8217;ouverture de ce blog aura été l&#8217;occasion de découvrir <a href="http://octopress.org">Octopress</a>, un générateur de blog statique écrit en Ruby basé sur <a href="http://jekyllrb.com">JeKyll</a>.</p>
-
-<p><img class="middle" src="http://ndruet.github.io/images/posts/octopress-logo.png" title="logo" ></p>
-
-<!--more-->
-
-
-<h1>Simple<a name="Simple"></a></h1>
-
-<p>L’avantage principal d’un générateur de blog statique, en comparaison avec Wordpress ou Blogger, est sa simplicité de fonctionnement.
-Aucune base de données n&#8217;est nécessaire, ni de serveur d’application.
-Le blog tient la charge même avec une forte audience, répond rapidement, et surtout se teste facilement en local.</p>
-
-<p>Les principales commandes d&#8217;Octopress sont :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate          # Genère entièrement le site à partir du fichier _config.xml et les répertoires /sources et /saas
-</span><span class='line'>rake preview           # Monte un serveur http://localhost:4000 et prend à chaud les modifications des posts (/sources)
-</span><span class='line'>rake new_post["title"] # Création d'un nouveau post
-</span><span class='line'>rake deploy            # Déploiement sur GitHub</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Par défaut les articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a> et s&#8217;éditent avec un simple éditeur de texte (Notepad++ en l&#8217;occurence).</p>
-
-<h1>Thèmes<a name="Thèmes"></a></h1>
-
-<p>Les thèmes sont disponibles sur GitHub, et apportent en général une présentation claire, et sont +/&ndash; <em>responsive design</em>.</p>
-
-<p>L&#8217;installation se résume à ces quelques commandes :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress                         # Se placer à la racine d'Octopress
-</span><span class='line'>git clone GIT_URL .themes/THEME_NAME # Clone le repo du thème et lui affecte un nom
-</span><span class='line'>rake install['THEME_NAME']           # Installe le thème
-</span><span class='line'>rake generate                        # Regénère le blog</span></code></pre></td></tr></table></div></figure>
-
-
-<p>La commande <code>rake install</code> permet de switcher d&#8217;un thème à l&#8217;autre.</p>
-
-<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et sur <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">le wiki</a>.
-Si le thème par défaut suffit amplement et ne nécessite pas de modification, l&#8217;idée d&#8217;avoir la main sur le CSS et les templates est plutôt agréable.
-Personnellement, j&#8217;ai opté pour <a href="https://github.com/sevenadrian/foxslide">Foxslide</a>.</p>
-
-<h1>Plugins<a name="Plugins"></a></h1>
-
-<p>Octopress inclut quelques plugins prêts à l&#8217;emploi.
-Ainsi l&#8217;interfaçage avec les comptes twitter, google+, google analytics… s&#8217;effectue en renseignement ses identifiants dans le fichier <code>_config.xml</code>.
-On peut également inclure des Gists, des videos HTML5, bénéficier de la coloration syntaxique et ajouter DISQUS pour les commentaires.</p>
-
-<p>D&#8217;autres existent et sont listés sur le <a href="https://github.com/imathis/octopress/wiki/3rd-party-plugins">wiki</a>.</p>
-
-<h1>Problèmes rencontrés<a name="Problèmes rencontrés"></a></h1>
-
-<p>Mais voila, du téléchargement d’Octopress à la publication sur Github, tout n’a pas été si simple.
-Heureusement, <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> a répondu à la plupart de mes problèmes cités ci-dessous.</p>
-
-<h3>> UTF-8 &ndash; Les accents</h3>
-
-<p>La gestion des accents n&#8217;a pas été évidente :</p>
-
-<ul>
-<li>La commande <code>rake generate</code> échoue systématiquement si un accent est présent dans la partie descriptive du post <a href="http://fr.wikipedia.org/wiki/YAML">YAML</a>.
-Il faut donc remplacer les caractères accentués par leur <a href="http://www.commentcamarche.net/contents/489-caracteres-speciaux-html">codes ISO</a>.</li>
-<li>Pour l&#8217;affichage des accents dans le corps du post, il est nécessaire d&#8217;encoder les posts en UTF-8 (sans <a href="http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8">Byte Order Mark</a> comme précisé dans <a href="http://jekyllrb.com/docs/frontmatter/">la documentation Jekyll</a>).
-</br></br></li>
-</ul>
-
-
-<h3>> Windows &ndash; Commande inéxistante</h3>
-
-<p>Au moment de déployer sur GitHub, le message suivant s&#8217;est affiché :</p>
-
-<blockquote><p><em>‘hellip’ is not recognized as an internal or external command, operable program or batch file.</em></p></blockquote>
-
-<p>La correction consiste à remplacer <code>&amp;hellip;</code> par <code>...</code> dans le fichier <code>RakeFile</code> à la ligne suivante :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>system "echo 'My Octopress Page is coming soon &hellip' > index.html"</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>> GitHub &ndash; HTTPS et les branches</h3>
-
-<p>N&#8217;ayant pas de Client SSH d&#8217;installé sur mon PC, j&#8217;ai du modifier la variable <em>branch</em> du fichier <code>Rakefile</code> pour que l’expression régulière accepte les urls HTTPS au déploiement du blog (<a href="https://github.com/imathis/octopress/commit/f5bb4dd89ea64181910acb8ef0df5ae84644b75d">corrigé le 1er juin 2013</a>).
-Mais une fois l&#8217;URL acceptée, conséquence directe ou non, Octopress n&#8217;a jamais voulu publier sur une autre branche que <em>gh-pages</em> (Project Page) au lieu de master (Organization Pages).
-J&#8217;ai donc finalement précisé manuellement la branche dans le fichier <code>Rakefile</code> :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>branch = 'master'
-</span><span class='line'>project = ''</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>> Coloration synthaxique</h3>
-
-<p>La présence de la langue dans les blocs de code cassait systématiquement la génération du site :</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>''' java
-</span><span class='line'>public class Toto {
-</span><span class='line'>}
-</span><span class='line'>'''</span></code></pre></td></tr></table></div></figure>
-
-
-<p>L&#8217;installation de <a href="http://www.python.org/download/releases/2.7.5/">Python (version 2.7.5)</a> a corrigé le problème.</p>
-
-<h3>> Majuscule à chaque mot dans le titre du post</h3>
-
-<p>Ce n&#8217;est pas un bug mais un fonctionnement par défaut.
-Chaque mot contenu dans le titre débutait par une majuscule.
-Pour éviter ce comportement, il est nécessaire de mettre à <em>false</em> l&#8217;attribut <em>titlecase</em> du fichier <code>config.xml</code>.</p>
-
-<h3>> Table des matières</h3>
-
-<p>Pour terminer, j&#8217;avais imaginé que la génération des indexs dans les posts (la table des matières) aurait été automatisé.
-Malheureusement, il est nécessaire de passer par des plugins :</p>
-
-<ul>
-<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">http://blog.riemann.cc/2013/04/10/table-of-contents-in-octopress/</a></li>
-<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/</a></li>
-</ul>
-
-
-<h1>Ressources</h1>
-
-<p>La <a href="http://octopress.org/docs/">documentation officielle</a> décrit étape par étape comment installer, rédiger et publier sur GitHub ou Heroku.
-Pour les utilisateurs Windows, un tour sur <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> vous évitera de vous arracher les cheveux.</p>
-
-<h1>Conclusion</h1>
-
-<p>Pour l’instant, Octopress répond parfaitement à mes besoins.
-Je ne regrette pas une seconde délaissé Worpress ou Blogger.
-Si ma première publication n&#8217;a pas été simple, la publication d’un billet aujourd&#8217;hui est un jeu d’enfant.
-Une communauté semble se développer autour du projet et de Jekyll de manière générale.
-Si l’activité sur <a href="https://github.com/imathis/octopress">GitHub</a> n’est pas dingue ces derniers temps, une <a href="https://github.com/imathis/octopress/tree/3.0">version 3.0</a> semble se profiler à l&#8217;horizon.</p>
-]]></content>
-  </entry>
+    <span class="byline author vcard">by <a href="https://plus.google.com/nicolas.druet?rel=author"><span class="fn">Nicolas Druet</span></a></span>
   
-</feed>
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-20T09:29:00+02:00" pubdate data-updated="true">Jun 20<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    
+      <a class="pull-left" href="/blog/2013/06/12/migrer-declipse-a-intellij/" title="Previous Post: Migrer d'&#201;clipse &#224; Intellij">&laquo; Migrer d'&#201;clipse &#224; Intellij</a>
+    
+    
+  </footer>
+
+</div>
+
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
+        
+      </article>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>Posts récents</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2013/06/20/presentation-de-lombok/">Pr&#233;sentation de Lombok</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/06/12/migrer-declipse-a-intellij/">Migrer d'&#201;clipse &#224; Intellij</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows/">Cr&#233;er un blog avec Octopress sous Windows</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <h2>Profiles</h2>
+
+<a href="https://github.com/ndruet/" rel="tooltip" title="Github"><img class="social_icon" title="Github" alt="github icon" src="/images/glyphicons_381_github.png"></a>
+
+
+
+
+
+
+
+
+
+<a href="https://plus.google.com/nicolas.druet?rel=author" rel="tooltip" title="Google Plus"><img class="social_icon" title="Google Plus" alt="Google Plus icon" src="/images/glyphicons_386_google_plus.png"></a>
+
+
+
+
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">Bloc notes sur Java/JEE</a>
+  - Copyright &copy; 2013 - Nicolas Druet
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'blocnotessurjavajee';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/';
+        var disqus_url = 'http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Bloc notes sur Java/JEE]]></title>
   <link href="http://ndruet.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ndruet.github.io/"/>
-  <updated>2013-06-19T18:03:03+02:00</updated>
+  <updated>2013-08-05T16:27:45+02:00</updated>
   <id>http://ndruet.github.io/</id>
   <author>
     <name><![CDATA[Nicolas Druet]]></name>
@@ -14,103 +14,140 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Octopress]]></title>
-    <link href="http://ndruet.github.io/blog/2013/05/27/octopress/"/>
+    <title type="html"><![CDATA[Cr&#233;er un blog avec Octopress sous Windows]]></title>
+    <link href="http://ndruet.github.io/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows/"/>
     <updated>2013-05-27T16:47:00+02:00</updated>
-    <id>http://ndruet.github.io/blog/2013/05/27/octopress</id>
-    <content type="html"><![CDATA[<p>Mes premiers mots seront consacrés à <a href="http://octopress.org">Octopress</a>, un générateur de blog statique écrit en ruby basé sur <a href="http://jekyllrb.com">JeKyll</a>.</p>
+    <id>http://ndruet.github.io/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows</id>
+    <content type="html"><![CDATA[<p>L'ouverture de ce blog aura été l'occasion de découvrir <a href="http://octopress.org">Octopress</a>, un générateur de blog statique écrit en Ruby basé sur <a href="http://jekyllrb.com">JeKyll</a>.</p>
 
 <p><img class="middle" src="/images/posts/octopress-logo.png" title="logo" ></p>
 
 <!--more-->
 
 
-<h1>Simple</h1>
+<h1>Simple<a name="Simple"></a></h1>
 
-<p>L’avantage principal d’un générateur de blog statique est sa simplicité de fonctionnement.
-Aucune base de données, ni de serveur d’application ne sont nécessaires.
-On obtient donc un site qui tient la charge même avec une forte audience.</p>
+<p>L’avantage principal d’un générateur de blog statique, en comparaison avec Wordpress ou Blogger, est sa simplicité de fonctionnement.
+Aucune base de données n'est nécessaire, ni de serveur d’application.
+Le blog tient la charge même avec une forte audience, répond rapidement, et surtout se teste facilement en local.</p>
 
-<p>Octopress permet en quelques lignes de commande de créer un post et publier sur GitHub.
-Les principales commandes sont :</p>
+<p>Les principales commandes d'Octopress sont :</p>
 
-<p><code>
-rake generate   # Genère entièrement le site à partir du fichier _config.xml et les répertoires /sources et /saas
-rake preview    # Scrute seulement /sources (les fichiers web et les posts) pour les changements, et monte un serveur http://localhost:4000
-rake new_post["title"] # Création d'un nouveau post
-rake deploy     # Déploiement sur GitHub
-</code>
-Par défaut les articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate          # Genère entièrement le site à partir du fichier _config.xml et les répertoires /sources et /saas
+</span><span class='line'>rake preview           # Monte un serveur &lt;a href="http://localhost:4000">http://localhost:4000&lt;/a> et prend à chaud les modifications des posts (/sources)
+</span><span class='line'>rake new_post[&ldquo;title&rdquo;] # Création d'un nouveau post
+</span><span class='line'>rake deploy            # Déploiement sur GitHub</span></code></pre></td></tr></table></div></figure></notextile></div>
+Par défaut les articles suivent la synthaxe <a href="http://daringfireball.net/projects/markdown/">Markdown</a> et s'éditent avec un simple éditeur de texte (Notepad++ en l'occurence).</p>
 
-<h1>Thèmes</h1>
+<h1>Thèmes<a name="Thèmes"></a></h1>
 
-<p>Les thèmes sont disponibles sur GitHub, s’installent facilement et assurent le minimum :</p>
+<p>Les thèmes sont disponibles sur GitHub, et apportent en général une présentation claire, et sont +/&ndash; <em>responsive design</em>.</p>
 
-<ul>
-<li>Présentation claire</li>
-<li>Navigation simple</li>
-<li>Responsive design</li>
-<li>Code HTML5 modifiable</li>
-</ul>
+<p>L'installation se résume à ces quelques commandes :
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress                         # Se placer à la racine d'Octopress
+</span><span class='line'>git clone GIT_URL .themes/THEME_NAME # Clone le repo du thème et lui affecte un nom
+</span><span class='line'>rake install[&lsquo;THEME_NAME&rsquo;]           # Installe le thème
+</span><span class='line'>rake generate                        # Regénère le blog</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
+<p>La commande <code>rake install</code> permet de switcher d'un thème à l'autre.</p>
 
-<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et d'autres sur <a href="http://www.evolument.com/blog/2013/03/02/top-10-plus-octopress-themes/">http://www.evolument.com</a>.</p>
+<p>Vous en trouverez sur <a href="http://octopressthemes.com/">http://octopressthemes.com</a> et sur <a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">le wiki</a>.
+Si le thème par défaut suffit amplement et ne nécessite pas de modification, l'idée d'avoir la main sur le CSS et les templates est plutôt agréable.
+Personnellement, j'ai opté pour <a href="https://github.com/sevenadrian/foxslide">Foxslide</a>.</p>
 
-<h1>Plugins</h1>
+<h1>Plugins<a name="Plugins"></a></h1>
 
-<p>L'interfaçage avec les comptes twitter, google+, google analytics… s'effectue simplement en renseignement ses identifiants dans le fichier <code>_config.xml</code>.
-On peut également inclure des Gists, des videos HTML5 et bénéficier de la coloration syntaxique.</p>
+<p>Octopress inclut quelques plugins prêts à l'emploi.
+Ainsi l'interfaçage avec les comptes twitter, google+, google analytics… s'effectue en renseignement ses identifiants dans le fichier <code>_config.xml</code>.
+On peut également inclure des Gists, des videos HTML5, bénéficier de la coloration syntaxique et ajouter DISQUS pour les commentaires.</p>
 
-<h1>Problèmes rencontrés</h1>
+<p>D'autres existent et sont listés sur le <a href="https://github.com/imathis/octopress/wiki/3rd-party-plugins">wiki</a>.</p>
+
+<h1>Problèmes rencontrés<a name="Problèmes rencontrés"></a></h1>
 
 <p>Mais voila, du téléchargement d’Octopress à la publication sur Github, tout n’a pas été si simple.
 Heureusement, <a href="http://derantell.github.io/blog/2012/12/02/getting-started-with-octopress-on-windows/">le blog de David Tellander</a> a répondu à la plupart de mes problèmes cités ci-dessous.</p>
 
 <h3>> UTF-8 &ndash; Les accents</h3>
 
-<p>La gestion des accents n'a pas évidente :</p>
+<p>La gestion des accents n'a pas été évidente :</p>
 
 <ul>
-<li>La commande rake generate échoue si un accent est présent dans la partie descriptive du post <a href="http://fr.wikipedia.org/wiki/YAML">YAML</a>. J'ai donc du remplacer les lettres par leur <a href="http://www.commentcamarche.net/contents/489-caracteres-speciaux-html">codes ISO</a>.</li>
-<li>Pour que les accents s'affichent dans le corps du post, il m'a fallu encoder les posts en UTF-8 (sans <a href="http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8">Byte Order Mark</a> comme précisé dans <a href="http://jekyllrb.com/docs/frontmatter/">la documentation Jekyll</a>  ).</br></br></li>
+<li>La commande <code>rake generate</code> échoue systématiquement si un accent est présent dans la partie descriptive du post <a href="http://fr.wikipedia.org/wiki/YAML">YAML</a>.
+Il faut donc remplacer les caractères accentués par leur <a href="http://www.commentcamarche.net/contents/489-caracteres-speciaux-html">codes ISO</a>.</li>
+<li>Pour l'affichage des accents dans le corps du post, il est nécessaire d'encoder les posts en UTF-8 (sans <a href="http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8">Byte Order Mark</a> comme précisé dans <a href="http://jekyllrb.com/docs/frontmatter/">la documentation Jekyll</a>).
+</br></br></li>
 </ul>
 
 
-<h3>> Windows &ndash; Commande inexistante</h3>
+<h3>> Windows &ndash; Commande inéxistante</h3>
 
 <p>Au moment de déployer sur GitHub, le message suivant s'est affiché :</p>
 
 <blockquote><p><em>‘hellip’ is not recognized as an internal or external command, operable program or batch file.</em></p></blockquote>
 
-<p>La correction a consisté à remplacer <code>&amp;hellip;</code> par <code>...</code> dans le fichier <code>RakeFile</code> à la ligne suivante :
-```</p>
-
-<pre><code>system "echo 'My Octopress Page is coming soon &amp;hellip' &gt; index.html"
-</code></pre>
-
-<p>```</p>
+<p>La correction consiste à remplacer <code>&amp;hellip;</code> par <code>...</code> dans le fichier <code>RakeFile</code> à la ligne suivante :
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>system "echo 'My Octopress Page is coming soon &amp;hellip' &gt; index.html"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>> GitHub &ndash; HTTPS et les branches</h3>
 
-<p>Le client SSH étant absent de mon post, j'ai du modifier la variable <em>branch</em> du fichier <code>Rakefile</code> pour que l’expression régulière accepte les urls HTTPS au déploiement du blog (<a href="https://github.com/imathis/octopress/commit/f5bb4dd89ea64181910acb8ef0df5ae84644b75d">corrigé le 1er juin 2013</a>).
+<p>N'ayant pas de Client SSH d'installé sur mon PC, j'ai du modifier la variable <em>branch</em> du fichier <code>Rakefile</code> pour que l’expression régulière accepte les urls HTTPS au déploiement du blog (<a href="https://github.com/imathis/octopress/commit/f5bb4dd89ea64181910acb8ef0df5ae84644b75d">corrigé le 1er juin 2013</a>).
 Mais une fois l'URL acceptée, conséquence directe ou non, Octopress n'a jamais voulu publier sur une autre branche que <em>gh-pages</em> (Project Page) au lieu de master (Organization Pages).
-J'ai donc finalement préciser manuellement la branche dans le fichier <code>Rakefile</code> :
-<code>
-branch = 'master'
-project = ''
-</code></p>
+J'ai donc finalement précisé manuellement la branche dans le fichier <code>Rakefile</code> :
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>branch = &lsquo;master&rsquo;
+</span><span class='line'>project = &lsquo;&rsquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>> Coloration synthaxique</h3>
 
 <p>La présence de la langue dans les blocs de code cassait systématiquement la génération du site :
-<code>
-''' java
-public class Toto {
-}
-'''
-</code></p>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lsquo;&rsquo;&lsquo; java
+</span><span class='line'>public class Toto {
+</span><span class='line'>}
+</span><span class='line'>&rsquo;&lsquo;&rsquo;</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>En effet <a href="http://www.python.org/download/releases/2.7.5/">Python (version 2.7.5)</a> est indispensable pour l'application de la coloration synthaxique.</p>
+<p>L'installation de <a href="http://www.python.org/download/releases/2.7.5/">Python (version 2.7.5)</a> a corrigé le problème.</p>
+
+<h3>> Majuscule à chaque mot dans le titre du post</h3>
+
+<p>Ce n'est pas un bug mais un fonctionnement par défaut.
+Chaque mot contenu dans le titre débutait par une majuscule.
+Pour éviter ce comportement, il est nécessaire de mettre à <em>false</em> l'attribut <em>titlecase</em> du fichier <code>config.xml</code>.</p>
+
+<h3>> Table des matières</h3>
+
+<p>Pour terminer, j'avais imaginé que la génération des indexs dans les posts (la table des matières) aurait été automatisé.
+Malheureusement, il est nécessaire de passer par des plugins :</p>
+
+<ul>
+<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">http://blog.riemann.cc/2013/04/10/table-of-contents-in-octopress/</a></li>
+<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/</a></li>
+</ul>
+
 
 <h1>Ressources</h1>
 
@@ -119,9 +156,11 @@ Pour les utilisateurs Windows, un tour sur <a href="http://derantell.github.io/b
 
 <h1>Conclusion</h1>
 
-<p>Pour l’instant, Octopress répond parfaitement à mes besoins. Je suis persuadé que si j’étais sous Linux ma première publication se serait passée plus simplement.
-Mais une fois tous les problèmes réglés, la publication d’un billet est un jeu d’enfant. Une communauté semble se développer autour du projet (Jekyll de manière plus générale)
-mais l’activité sur <a href="https://github.com/imathis/octopress">GitHub</a> n’est pas dingue ces derniers temps.</p>
+<p>Pour l’instant, Octopress répond parfaitement à mes besoins.
+Je ne regrette pas une seconde délaissé Worpress ou Blogger.
+Si ma première publication n'a pas été simple, la publication d’un billet aujourd'hui est un jeu d’enfant.
+Une communauté semble se développer autour du projet et de Jekyll de manière générale.
+Si l’activité sur <a href="https://github.com/imathis/octopress">GitHub</a> n’est pas dingue ces derniers temps, une <a href="https://github.com/imathis/octopress/tree/3.0">version 3.0</a> semble se profiler à l'horizon.</p>
 ]]></content>
   </entry>
   

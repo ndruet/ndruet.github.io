@@ -1,19 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://ndruet.github.io/blog/2013/05/27/octopress/</loc>
-        <lastmod>2013-06-19T14:43:50+02:00</lastmod>
+        <loc>
+            http://ndruet.github.io/blog/2013/05/27/creer-un-blog-avec-octopress-sous-windows/
+        </loc>
+        <lastmod>2013-08-05T15:34:23+02:00</lastmod>
     </url>
     <url>
-        <loc>http://ndruet.github.io/blog/2013/06/12/declipse-a-intellij/</loc>
-        <lastmod>2013-06-19T18:00:58+02:00</lastmod>
+        <loc>http://ndruet.github.io/blog/2013/06/12/migrer-declipse-a-intellij/</loc>
+        <lastmod>2013-08-05T15:41:06+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ndruet.github.io/blog/2013/06/20/presentation-de-lombok/</loc>
+        <lastmod>2013-08-05T16:21:18+02:00</lastmod>
     </url>
     <url>
         <loc>http://ndruet.github.io/blog/archives/</loc>
-        <lastmod>2013-06-19T18:00:58+02:00</lastmod>
+        <lastmod>2013-08-05T16:21:18+02:00</lastmod>
     </url>
     <url>
         <loc>http://ndruet.github.io/</loc>
-        <lastmod>2013-06-19T18:00:58+02:00</lastmod>
+        <lastmod>2013-08-05T16:21:18+02:00</lastmod>
     </url>
 </urlset>
