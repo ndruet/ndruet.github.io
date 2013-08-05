@@ -8166,3 +8166,19 @@ article.archive-article-format {
 .dl-horizontal dt {
 	width: 135px
 }
+
+.info,.warning {
+    border:none;
+    padding:0.6em 1.25em 0.6em 48px;
+    margin-top:0.25em;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+}
+.info {
+    background:#d5e9f6 url(/images/info.gif) no-repeat left top
+}
+
+.warning {
+    background:#f9d9d8 url(/images/warning.gif) no-repeat left top
+}
